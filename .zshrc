@@ -72,7 +72,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    tmux
+    volta
 )
+ZSH_TMUX_AUTOSTART=true
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -100,11 +105,6 @@ plugins=(
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(starship init zsh)"
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="/Users/parker/.local/bin:$PATH:${GOPATH}/bin:${GOROOT}/bin"
@@ -125,3 +125,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 nerdfetch
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
