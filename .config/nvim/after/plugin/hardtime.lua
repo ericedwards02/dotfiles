@@ -1,7 +1,2 @@
-require("hardtime").setup({
-  disabled_filetypes = {
-    "qf",
-    "lazy",
-    "mason",
-  },
-})
+require("hardtime").setup({})
+

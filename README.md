@@ -7,8 +7,17 @@ Clone this repository into `~/dotfiles`. Install the dependencies below and run 
 ## Dependencies
 
 - [Homebrew]("https://brew.sh/")
+
+### Casks
+
+- Alacritty `brew install alacritty`
+- FiraCode Nerd Font `brew install font-fira-code-nerd-font`
+- Rectangle `brew install rectangle`
+- Raycast `brew install raycast`
+
+### Formulae
+
 - stow `brew install stow`
-- [Alacritty]("https://alacritty.org/")
 - zsh `brew install zsh`
 - Neovim `brew install neovim`
 - tmux `brew install tmux`
