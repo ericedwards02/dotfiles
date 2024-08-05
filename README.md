@@ -2,11 +2,16 @@
 
 ## Getting Started
 
-Clone this repository into `~/dotfiles`. Install the dependencies below and run `stow .`. You may need to delete some lines from `.zshrc` if you aren't using certain software (e.g., `nvm`, `golang`, or `ghcup`). Once your `.zshrc` loads without fail, run `sourcetmux` to load tmux plugins, and open Neovim (`nvim`) to ensure everything works.
+Clone this repository into `~/dotfiles`. Install the dependencies below and run `stow .` in `~/dotfiles`. You may need to comment some lines from `.zshrc` if you aren't using certain software (e.g., `nvm`, `golang`, or `ghcup`). Once the `.zshrc` loads without fail,
+
+- run `sourcetmux` to load tmux plugins,
+- press `prefix` + `I` to install tmux plugins,
+- and open Neovim (`nvim`) to install Neovim plugins
 
 ## Dependencies
 
 - [Homebrew]("https://brew.sh/")
+- tmux Plugin Manager `git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm`
 
 ### Casks
 
@@ -23,3 +28,4 @@ Clone this repository into `~/dotfiles`. Install the dependencies below and run 
 - tmux `brew install tmux`
 - Starship `brew install starship`
 - Nerdfetch `brew install nerdfetch`
+- zsh-autosuggestions `brew install zsh-autosuggestions`
