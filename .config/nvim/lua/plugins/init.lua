@@ -95,13 +95,9 @@ return {
   { "stevearc/dressing.nvim" },
 
   "lewis6991/gitsigns.nvim",
-  { "catppuccin/nvim",       name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim",         name = "catppuccin", priority = 1000 },
 
-  {
-    "ellisonleao/carbon-now.nvim",
-    lazy = true,
-    cmd = "CarbonNow",
-  },
+  { "mistricky/codesnap.nvim", build = "make" },
 
   {
     "m4xshen/hardtime.nvim",
