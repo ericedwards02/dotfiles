@@ -112,7 +112,9 @@ export EDITOR="nvim"
 
 alias vim="nvim"
 alias vi="nvim"
+alias ls="eza"
 alias zshcfg="nvim ~/.zshrc"
+alias sourcezsh="source ~/.zshrc"
 alias starshipcfg="nvim ~/.config/starship.toml"
 alias alacrittycfg="nvim ~/.config/alacritty/alacritty.toml"
 alias tmuxcfg="nvim ~/.config/tmux/tmux.conf"
@@ -128,3 +130,7 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

@@ -24,6 +24,7 @@ Clone this repository into `~/dotfiles`. Install the dependencies below and run 
 
 - stow `brew install stow`
 - zsh `brew install zsh`
+- eza `brew install eza`
 - Neovim `brew install neovim`
 - tmux `brew install tmux`
 - Starship `brew install starship`

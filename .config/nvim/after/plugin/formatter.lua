@@ -52,6 +52,10 @@ require("formatter").setup({
       end,
     },
 
+    kotlin = {
+      require("formatter.filetypes.kotlin").ktlint,
+    },
+
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype
     ["*"] = {
