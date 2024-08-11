@@ -1,10 +1,41 @@
 return {
+  "tpope/vim-sleuth",
+
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      signs = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+      },
+    },
+  },
+
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.2",
-    -- or                            , branch = '0.1.x',
-    dependencies = { "nvim-lua/plenary.nvim" },
+    tag = "0.1.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-telescope/telescope-ui-select.nvim" },
+    },
   },
+  { "nvim-lualine/lualine.nvim",       dependencies = { "nvim-tree/nvim-web-devicons", lazy = true } },
+
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "luvit-meta/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+  { "Bilal2453/luvit-meta",            lazy = true },
 
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   "nvim-treesitter/playground",
@@ -38,8 +69,7 @@ return {
   "windwp/nvim-autopairs",
   "windwp/nvim-ts-autotag",
 
-  { "nvim-lualine/lualine.nvim",       dependencies = { "nvim-tree/nvim-web-devicons", lazy = true } },
-  { "L3MON4D3/LuaSnip",                dependencies = { "rafamadriz/friendly-snippets" } },
+  { "L3MON4D3/LuaSnip",      dependencies = { "rafamadriz/friendly-snippets" } },
   "saadparwaiz1/cmp_luasnip",
 
   {
@@ -66,8 +96,6 @@ return {
 
   { "kevinhwang91/nvim-bqf", ft = "qf" },
 
-  { "folke/trouble.nvim",    dependencies = { "nvim-tree/nvim-web-devicons" } },
-
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -85,15 +113,10 @@ return {
     "smjonas/inc-rename.nvim",
   },
 
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-
-  { "echasnovski/mini.nvim",                    version = "*" },
+  { "echasnovski/mini.nvim",   version = "*" },
 
   "andrewferrier/wrapping.nvim",
 
-  { "stevearc/dressing.nvim" },
-
-  "lewis6991/gitsigns.nvim",
   { "catppuccin/nvim",         name = "catppuccin", priority = 1000 },
 
   { "mistricky/codesnap.nvim", build = "make" },
