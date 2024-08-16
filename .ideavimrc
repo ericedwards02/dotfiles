@@ -32,7 +32,7 @@ map <leader>o <Action>(FileStructurePopup)
 
 map <leader>pf <Action>(GotoFile)
 map <leader>ps <Action>(FindInPath)
-map <leader>pa <Action>(SearchEverywhere)
+map <leader>pe <Action>(SearchEverywhere)
 map <leader>pa <Action>(GotoAction)
 map <c-\> <Action>(ActivateTerminalToolWindow)
 map <leader>ca <Action>(ShowIntentionActions)
