@@ -20,9 +20,6 @@ set ideastatusicon=gray
 set idearefactormode=keep
 
 """ Mappings --------------------------------
-map <leader>d <Action>(Debug)
-map <leader>r <Action>(RenameElement)
-map <leader>c <Action>(Stop)
 map <leader>z <Action>(ToggleDistractionFreeMode)
 
 map <leader>s <Action>(SelectInProjectView)
@@ -36,3 +33,8 @@ map <leader>o <Action>(FileStructurePopup)
 map <leader>pf <Action>(FindInPath)
 map <leader>pa <Action>(GotoAction)
 map <c-\> <Action>(ActivateTerminalToolWindow)
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>rn <Action>(RenameElement)
+map <leader>d <Action>(ShowErrorDescription)
+map [d <Action>(GotoPreviousError)
+map ]d <Action>(GotoNextError)
