@@ -103,6 +103,18 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# fzf config
+export FZF_DEFAULT_OPTS='--tmux'
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 eval "$(starship init zsh)"
 
 export GOPATH=$HOME/go
@@ -134,6 +146,9 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/ansible@9/bin:$PATH"
+
+export GIT_ROOT="/Users/parlandon/git"
+export GIT_APP_CORE="/Users/parlandon/git/app-core"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

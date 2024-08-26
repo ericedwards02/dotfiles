@@ -31,3 +31,5 @@ Clone this repository into `~/dotfiles`. Install the dependencies below and run 
 - Starship `brew install starship`
 - Nerdfetch `brew install nerdfetch`
 - zsh-autosuggestions `brew install zsh-autosuggestions`
+- fzf `brew install fzf`
+- fd `brew install fd`
