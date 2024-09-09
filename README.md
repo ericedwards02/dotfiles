@@ -33,3 +33,4 @@ Clone this repository into `~/dotfiles`. Install the dependencies below and run 
 - zsh-autosuggestions `brew install zsh-autosuggestions`
 - fzf `brew install fzf`
 - fd `brew install fd`
+- luarocks `brew install luarocks`

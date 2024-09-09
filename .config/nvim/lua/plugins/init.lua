@@ -49,7 +49,7 @@ return {
 
   {
     "VonHeikemen/lsp-zero.nvim",
-    branch = "v3.x",
+    branch = "v4.x",
     dependencies = {
       -- LSP Support
       { "neovim/nvim-lspconfig" },             -- Required
@@ -126,5 +126,7 @@ return {
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
   },
 
-  { 'ThePrimeagen/vim-be-good' }
+  { 'ThePrimeagen/vim-be-good' },
+
+  { 'nvim-telescope/telescope-ui-select.nvim' }
 }

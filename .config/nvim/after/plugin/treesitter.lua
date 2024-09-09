@@ -31,16 +31,7 @@ require("nvim-treesitter.configs").setup({
     additional_vim_regex_highlighting = false,
   },
 
-  require("nvim-treesitter.configs").setup({
-    autotag = {
-      enable = true,
-    },
-  }),
+  ignore_install = {},
 
-  require("nvim-treesitter.configs").setup({
-    autotag = {
-      enable = true,
-      enable_close_on_slash = false,
-    },
-  }),
+  modules = {}
 })
