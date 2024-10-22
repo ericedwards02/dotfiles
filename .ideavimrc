@@ -43,6 +43,8 @@ map [d <Action>(GotoPreviousError)
 map ]d <Action>(GotoNextError)
 map <leader>a] <Action>(NextTab)
 map <leader>a[ <Action>(PreviousTab)
+map ]c <Action>(VcsShowNextChangeMarker)
+map [c <Action>(VcsShowPrevChangeMarker)
 
 map gcc <Action>(CommentByLineComment)
 map gff <Action>(ShowReformatFileDialog)

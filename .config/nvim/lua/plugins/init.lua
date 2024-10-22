@@ -113,20 +113,22 @@ return {
     "smjonas/inc-rename.nvim",
   },
 
-  { "echasnovski/mini.nvim",   version = "*" },
+  { "echasnovski/mini.nvim",                  version = "*" },
 
   "andrewferrier/wrapping.nvim",
 
-  { "catppuccin/nvim",         name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim",                        name = "catppuccin", priority = 1000 },
 
-  { "mistricky/codesnap.nvim", build = "make" },
+  { "mistricky/codesnap.nvim",                build = "make" },
 
-  {
-    "m4xshen/hardtime.nvim",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-  },
+  -- {
+  --   "m4xshen/hardtime.nvim",
+  --   dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+  -- },
 
   { 'ThePrimeagen/vim-be-good' },
 
-  { 'nvim-telescope/telescope-ui-select.nvim' }
+  { 'nvim-telescope/telescope-ui-select.nvim' },
+
+  { 'github/copilot.vim' }
 }

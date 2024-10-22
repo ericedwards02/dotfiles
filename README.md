@@ -8,6 +8,28 @@ Clone this repository into `~/dotfiles`. Install the dependencies below and run 
 - press `prefix` + `I` to install tmux plugins,
 - and open Neovim (`nvim`) to install Neovim plugins
 
+### git-delta
+
+Add the following to `~/.gitconfig` to use `git-delta` (per their [docs](https://dandavison.github.io/delta/get-started.html)):
+
+```toml
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+
+    # delta detects terminal colors automatically; set one of these to disable auto-detection
+    # dark = true
+    # light = true
+
+[merge]
+    conflictstyle = diff3
+```
+
 ## Dependencies
 
 - [Homebrew]("https://brew.sh/")
@@ -34,3 +56,19 @@ Clone this repository into `~/dotfiles`. Install the dependencies below and run 
 - fzf `brew install fzf`
 - fd `brew install fd`
 - luarocks `brew install luarocks`
+- bat `brew install bat`
+- git-delta `brew install git-delta`
+- less `brew install less` (most recent version)
+
+### Themes
+
+#### delta
+
+#### bat
+
+```zsh
+# Install themes into bat themes folder
+curl "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmThem" -o "$(bat --config-dir)/themes/Catppuccin Mocha"
+# Rebuild bat's cache
+bat cache --build
+```
