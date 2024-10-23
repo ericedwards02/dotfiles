@@ -129,6 +129,4 @@ return {
   { 'ThePrimeagen/vim-be-good' },
 
   { 'nvim-telescope/telescope-ui-select.nvim' },
-
-  { 'github/copilot.vim' }
 }

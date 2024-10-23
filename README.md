@@ -59,3 +59,4 @@ Add the following to `~/.gitconfig` to use `git-delta` (per their [docs](https:/
 - less `brew install less` (most recent version, dependency of `bat`)
 - bat `brew install bat`
 - git-delta `brew install git-delta`
+- glow `brew install glow`
