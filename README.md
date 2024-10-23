@@ -19,12 +19,15 @@ Add the following to `~/.gitconfig` to use `git-delta` (per their [docs](https:/
 [interactive]
     diffFilter = delta --color-only
 
-[delta]
-    navigate = true    # use n and N to move between diff sections
+[include]
+    path = ~/.config/delta/themes/catppuccin/catppuccin.gitconfig
 
+[delta]
     # delta detects terminal colors automatically; set one of these to disable auto-detection
     # dark = true
     # light = true
+    features = catppuccin-mocha
+    side-by-side=true
 
 [merge]
     conflictstyle = diff3
@@ -60,3 +63,11 @@ Add the following to `~/.gitconfig` to use `git-delta` (per their [docs](https:/
 - bat `brew install bat`
 - git-delta `brew install git-delta`
 - glow `brew install glow`
+
+### Themes
+
+Run `git submodule update --init --recursive` to install themes.
+
+#### bat
+
+Once themes are installed, run `bat cache --build` to load the theme.
