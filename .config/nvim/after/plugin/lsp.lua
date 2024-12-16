@@ -1,40 +1,42 @@
-local lsp = require("lsp-zero")
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local opts = { buffer = event.buf }
 
-local lsp_attach = function(_, bufnr)
-  local opts = { buffer = bufnr, remap = false }
+    vim.keymap.set("n", "K", function()
+      vim.lsp.buf.hover()
+    end, opts)
+    vim.keymap.set("n", "<leader>vws", function()
+      vim.lsp.buf.workspace_symbol()
+    end, opts)
+    vim.keymap.set("n", "<leader>d", function()
+      vim.diagnostic.open_float()
+    end, opts)
+    vim.keymap.set("n", "[d", function()
+      vim.diagnostic.goto_next()
+    end, opts)
+    vim.keymap.set("n", "]d", function()
+      vim.diagnostic.goto_prev()
+    end, opts)
+    vim.keymap.set("n", "<leader>ca", function()
+      vim.lsp.buf.code_action()
+    end, opts)
+    vim.keymap.set("i", "<C-h>", function()
+      vim.lsp.buf.signature_help()
+    end, opts)
 
-  vim.keymap.set("n", "K", function()
-    vim.lsp.buf.hover()
-  end, opts)
-  vim.keymap.set("n", "<leader>vws", function()
-    vim.lsp.buf.workspace_symbol()
-  end, opts)
-  vim.keymap.set("n", "<leader>d", function()
-    vim.diagnostic.open_float()
-  end, opts)
-  vim.keymap.set("n", "[d", function()
-    vim.diagnostic.goto_next()
-  end, opts)
-  vim.keymap.set("n", "]d", function()
-    vim.diagnostic.goto_prev()
-  end, opts)
-  vim.keymap.set("n", "<leader>ca", function()
-    vim.lsp.buf.code_action()
-  end, opts)
-  vim.keymap.set("i", "<C-h>", function()
-    vim.lsp.buf.signature_help()
-  end, opts)
-end
-
-lsp.format_on_save({
-  format_opts = {
-    async = false,
-    timeout_ms = 10000,
-  },
-  servers = {
-    ["lua_ls"] = { "lua" },
-    ["rust_analyzer"] = { "rust" },
-  },
+    -- format on save
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if not client then return end;
+    if client.supports_method('textDocument/formatting') then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = event.buf,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = event.buf, id = client.id })
+        end
+      })
+    end
+  end
 })
 
 local cmp = require("cmp")
@@ -66,23 +68,17 @@ cmp.setup({
   ),
 })
 
-lsp.extend_lspconfig({
-  capabilities = require('cmp_nvim_lsp').default_capabilities(),
-  lsp_attach = lsp_attach,
-  float_border = 'rounded',
-  sign_text = true,
-})
-
 require("mason").setup({})
 require("mason-lspconfig").setup({
   ensure_installed = { "ts_ls", "eslint", "rust_analyzer", "gopls" },
+  automatic_installation = false,
   handlers = {
-    lsp.default_setup,
-    lua_ls = function()
-      local lua_opts = lsp.nvim_lua_ls()
-      require("lspconfig").lua_ls.setup(lua_opts)
-    end,
+    -- let haskell-tools handle language server
     hls = function() end,
+    -- setup otherwise
+    function(server_name)
+      require('lspconfig')[server_name].setup({})
+    end
   },
 })
 
@@ -90,7 +86,28 @@ require("mason-lspconfig").setup({
 -- Haskell Tools setup
 vim.g.haskell_tools = {
   hls = {
-    capabilities = lsp.get_capabilities(),
+    on_attach = function(_, bufnr, ht)
+      ---
+      -- Suggested keymaps from the quick setup section:
+      -- https://github.com/mrcjkb/haskell-tools.nvim#quick-setup
+      ---
+
+      local def_opts = { noremap = true, silent = true, buffer = bufnr }
+      -- haskell-language-server relies heavily on codeLenses,lsp
+      -- so auto-refresh (see advanced configuration) is enabled by default
+      vim.keymap.set("n", "<leader>hca", vim.lsp.codelens.run, def_opts)
+      -- Hoogle search for the type signature of the definition under the cursor
+      -- vim.keymap.set("n", "<space>hs", ht.hoogle.hoogle_signature, opts)
+      -- Evaluate all code snippets
+      vim.keymap.set("n", "<leader>hea", ht.lsp.buf_eval_all, def_opts)
+      -- Toggle a GHCi repl for the current package
+      vim.keymap.set("n", "<leader>hrr", ht.repl.toggle, def_opts)
+      -- Toggle a GHCi repl for the current buffer
+      -- vim.keymap.set("n", "<leader>hrf", function()
+      --   ht.repl.toggle(vim.api.nvim_buf_get_name(0))
+      -- end, def_opts)
+      -- vim.keymap.set("n", "<leader>rq", ht.repl.quit, opts)
+    end
   },
   tools = {
     repl = {
@@ -101,34 +118,3 @@ vim.g.haskell_tools = {
     },
   },
 }
-
--- Autocmd that will actually be in charging of starting hls
-local hls_augroup = vim.api.nvim_create_augroup("haskell-lsp", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-  group = hls_augroup,
-  pattern = { "haskell" },
-  callback = function()
-    ---
-    -- Suggested keymaps from the quick setup section:
-    -- https://github.com/mrcjkb/haskell-tools.nvim#quick-setup
-    ---
-
-    local ht = require("haskell-tools")
-    local bufnr = vim.api.nvim_get_current_buf()
-    local def_opts = { noremap = true, silent = true, buffer = bufnr }
-    -- haskell-language-server relies heavily on codeLenses,lsp
-    -- so auto-refresh (see advanced configuration) is enabled by default
-    vim.keymap.set("n", "<leader>hca", vim.lsp.codelens.run, def_opts)
-    -- Hoogle search for the type signature of the definition under the cursor
-    -- vim.keymap.set("n", "<space>hs", ht.hoogle.hoogle_signature, opts)
-    -- Evaluate all code snippets
-    vim.keymap.set("n", "<leader>hea", ht.lsp.buf_eval_all, def_opts)
-    -- Toggle a GHCi repl for the current package
-    vim.keymap.set("n", "<leader>hrr", ht.repl.toggle, def_opts)
-    -- Toggle a GHCi repl for the current buffer
-    -- vim.keymap.set("n", "<leader>hrf", function()
-    --   ht.repl.toggle(vim.api.nvim_buf_get_name(0))
-    -- end, def_opts)
-    -- vim.keymap.set("n", "<leader>rq", ht.repl.quit, opts)
-  end,
-})

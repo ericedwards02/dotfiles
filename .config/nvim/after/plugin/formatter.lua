@@ -42,6 +42,10 @@ require("formatter").setup({
       require("formatter.filetypes.go").gofmt,
     },
 
+    terraform = {
+      require("formatter.filetypes.terraform").terraformfmt,
+    },
+
     haskell = {
       function()
         return {

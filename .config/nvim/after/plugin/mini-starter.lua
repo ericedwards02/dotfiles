@@ -12,16 +12,10 @@ local header_art = [[
 ███   ███   ███    █▄  ███    ███ ███    ███ ███  ███   ███   ███
 ███   ███   ███    ███ ███    ███ ███    ███ ███  ███   ███   ███
  ▀█   █▀    ██████████  ▀██████▀   ▀██████▀  █▀    ▀█   ███   █▀
-
 ]]
 
 local footer = [[
-And on the pedestal, these words appear:
-My name is Ozymandias, King of Kings;
-Look on my Works, ye Mighty, and despair!
-Nothing beside remains. Round the decay
-Of that colossal Wreck, boundless and bare
-The lone and level sands stretch far away.”
+We who cut mere stones must always be envisioning cathedrals.
 ]]
 
 starter.setup({

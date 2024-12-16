@@ -47,24 +47,18 @@ return {
   "mbbill/undotree",
   "mhartington/formatter.nvim",
 
-  {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v4.x",
-    dependencies = {
-      -- LSP Support
-      { "neovim/nvim-lspconfig" },             -- Required
-      { "williamboman/mason.nvim" },           -- Optional
-      { "williamboman/mason-lspconfig.nvim" }, -- Optional
+  -- LSP Support
+  { "neovim/nvim-lspconfig" },
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
 
-      -- Autocompletion
-      { "hrsh7th/nvim-cmp" },     -- Required
-      { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      { "L3MON4D3/LuaSnip" },     -- Required
-      { "hrsh7th/cmp-nvim-lua" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-    },
-  },
+  -- Autocompletion
+  { "hrsh7th/nvim-cmp" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "L3MON4D3/LuaSnip" },
+  { "hrsh7th/cmp-nvim-lua" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-path" },
 
   "windwp/nvim-autopairs",
   "windwp/nvim-ts-autotag",
@@ -74,8 +68,9 @@ return {
 
   {
     "mrcjkb/haskell-tools.nvim",
-    version = "^3",
+    version = "^4",
     ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+    lazy = false
   },
 
   {
