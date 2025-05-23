@@ -1,127 +1,127 @@
 return {
-  "tpope/vim-sleuth",
+	"tpope/vim-sleuth",
 
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-      },
-    },
-  },
+	{
+		"lewis6991/gitsigns.nvim",
+		opts = {
+			signs = {
+				add = { text = "+" },
+				change = { text = "~" },
+				delete = { text = "_" },
+				topdelete = { text = "‾" },
+				changedelete = { text = "~" },
+			},
+		},
+	},
 
-  {
-    "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      { "nvim-telescope/telescope-ui-select.nvim" },
-    },
-  },
-  { "nvim-lualine/lualine.nvim",       dependencies = { "nvim-tree/nvim-web-devicons", lazy = true } },
+	{
+		"nvim-telescope/telescope.nvim",
+		branch = "0.1.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			{ "nvim-telescope/telescope-ui-select.nvim" },
+		},
+	},
+	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons", lazy = true } },
 
-  {
-    "folke/lazydev.nvim",
-    ft = "lua",
-    opts = {
-      library = {
-        -- Load luvit types when the `vim.uv` word is found
-        { path = "luvit-meta/library", words = { "vim%.uv" } },
-      },
-    },
-  },
-  { "Bilal2453/luvit-meta",            lazy = true },
+	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				-- Load luvit types when the `vim.uv` word is found
+				{ path = "luvit-meta/library", words = { "vim%.uv" } },
+			},
+		},
+	},
+	{ "Bilal2453/luvit-meta", lazy = true },
 
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  "nvim-treesitter/playground",
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
-  "mbbill/undotree",
-  "mhartington/formatter.nvim",
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	"nvim-treesitter/playground",
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	"mbbill/undotree",
+	"mhartington/formatter.nvim",
 
-  -- LSP Support
-  { "neovim/nvim-lspconfig" },
-  { "williamboman/mason.nvim" },
-  { "williamboman/mason-lspconfig.nvim" },
+	-- LSP Support
+	{ "neovim/nvim-lspconfig" },
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim", version = "^1" },
 
-  -- Autocompletion
-  { "hrsh7th/nvim-cmp" },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "L3MON4D3/LuaSnip" },
-  { "hrsh7th/cmp-nvim-lua" },
-  { "hrsh7th/cmp-buffer" },
-  { "hrsh7th/cmp-path" },
+	-- Autocompletion
+	{ "hrsh7th/nvim-cmp" },
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "L3MON4D3/LuaSnip" },
+	{ "hrsh7th/cmp-nvim-lua" },
+	{ "hrsh7th/cmp-buffer" },
+	{ "hrsh7th/cmp-path" },
 
-  "windwp/nvim-autopairs",
-  "windwp/nvim-ts-autotag",
+	"windwp/nvim-autopairs",
+	"windwp/nvim-ts-autotag",
 
-  { "L3MON4D3/LuaSnip",      dependencies = { "rafamadriz/friendly-snippets" } },
-  "saadparwaiz1/cmp_luasnip",
+	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
+	"saadparwaiz1/cmp_luasnip",
 
-  {
-    "mrcjkb/haskell-tools.nvim",
-    version = "^4",
-    ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
-    lazy = false
-  },
+	{
+		"mrcjkb/haskell-tools.nvim",
+		version = "^4",
+		ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+		lazy = false,
+	},
 
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-  },
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+	},
 
-  {
-    "kylechui/nvim-surround",
-    version = "*",
-  },
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+	},
 
-  "tpope/vim-fugitive",
+	"tpope/vim-fugitive",
 
-  "numToStr/Comment.nvim",
+	"numToStr/Comment.nvim",
 
-  "Wansmer/treesj",
+	"Wansmer/treesj",
 
-  { "kevinhwang91/nvim-bqf", ft = "qf" },
+	{ "kevinhwang91/nvim-bqf", ft = "qf" },
 
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    },
-  },
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	},
 
-  {
-    "smjonas/inc-rename.nvim",
-  },
+	{
+		"smjonas/inc-rename.nvim",
+	},
 
-  { "echasnovski/mini.nvim",                  version = "*" },
+	{ "echasnovski/mini.nvim", version = "*" },
 
-  "andrewferrier/wrapping.nvim",
+	"andrewferrier/wrapping.nvim",
 
-  { "catppuccin/nvim",                        name = "catppuccin", priority = 1000 },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
-  { "mistricky/codesnap.nvim",                build = "make" },
+	{ "mistricky/codesnap.nvim", build = "make" },
 
-  -- {
-  --   "m4xshen/hardtime.nvim",
-  --   dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-  -- },
+	-- {
+	--   "m4xshen/hardtime.nvim",
+	--   dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+	-- },
 
-  { 'ThePrimeagen/vim-be-good' },
+	{ "ThePrimeagen/vim-be-good" },
 
-  { 'nvim-telescope/telescope-ui-select.nvim' },
+	{ "nvim-telescope/telescope-ui-select.nvim" },
 }
